@@ -2,6 +2,18 @@
 
 How do you securely **identify a human user**, **retrieve their pre-authorized third-party credentials**, and **confirm a financial transaction** across **two independent OAuth boundaries** — *in real time*, *transparently*, and inside an *external conversational AI interface* (such as *ChatGPT*, *Le Chat* or *Claude*)?
 
+### The Vision
+Tomorrow, a user **opens ChatGPT**, types *"Book me an Uber to O'Hare"*, and the ride is confirmed — **without ever opening the Uber app**. 
+- **ChatGPT becomes the interface**.
+- **Uber** becomes a **backend service**.
+- The AI agent orchestrates everything.
+
+This is not a **UX convenience story**. It is a **multi-party authorization problem** with two distinct security boundaries that must be solved independently.
+
+### The Core Problem We're Solving
+
+How do you securely **identify a human user**, **retrieve their pre-authorized third-party credentials**, and **confirm a financial transaction** across **two independent OAuth boundaries** — *in real time*, *transparently*, and inside an *external conversational AI interface* (such as *ChatGPT*, *Le Chat* or *Claude*)?
+
 It's a **multi-party authorization problem** on how to Book and Pay a Uber (or Lyft) Ride Inside a 3rd party **conversational AI interface**? 
 
 Each of these is a distinct protocol problem. None is automatically inherited from solving the others. **Auth0 is the architectural component that spans all three** — 
@@ -12,15 +24,11 @@ Each of these is a distinct protocol problem. None is automatically inherited fr
 
 ... making it the single most critical dependency in the entire stack.
 
-### The Vision
-Tomorrow, a user **opens ChatGPT**, types *"Book me an Uber to O'Hare"*, and the ride is confirmed — **without ever opening the Uber app**. 
-- **ChatGPT becomes the interface**.
-- **Uber** becomes a **backend service**.
-- The AI agent orchestrates everything.
-
-This is not a **UX convenience story**. It is a **multi-party authorization problem** with two distinct security boundaries that must be solved independently.
-
-### The Core Problem We're Solving
+| # | Problem | Protocol gap | Consequence if unsolved |
+|---|---|---|---|
+| 1 | ChatGPT is authenticated but the human user is not identified | OAuth 2.0 without OIDC carries no user identity | MCP server cannot map the request to a specific Uber account |
+| 2 | MCP server has no Uber credentials for the user | Uber tokens are user-scoped, issued separately, must be stored and refreshed | Ride cannot be booked regardless of Boundary 1 being correctly configured |
+| 3 | Financial transaction requires explicit out-of-band user confirmation | Neither OAuth nor MCP provide a transaction confirmation primitive | Real money moves without verified user intent — compliance and fraud risk |
 
 A user saying "book me an Uber" inside ChatGPT triggers a **3-party authorization chain**: 
 
