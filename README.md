@@ -8,7 +8,7 @@ Tomorrow, a user **opens ChatGPT**, types *"Book me an Uber to O'Hare"*, and the
 - **Uber** becomes a **backend service**.
 - The AI agent orchestrates everything.
 
-This is not a **UX convenience story**. It is a **multi-party authorization problem** with two distinct security boundaries that must be solved independently.
+This is not a **UX convenience story**. It is a **multi-party authorization problem** with **3 very distinct security boundaries** that must be solved independently.
 
 ### The Core Problem We're Solving
 
