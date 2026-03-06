@@ -11,6 +11,17 @@ Tomorrow, a user **opens ChatGPT**, types *"Book me an Uber to O'Hare"*, and the
 This is not a **UX convenience story**. It is a **multi-party authorization problem** with two distinct security boundaries that must be solved independently.
 
 ### The Core Problem We're Solving
+
+A user saying "book me an Uber" inside ChatGPT triggers a three-party authorization chain: ChatGPT must prove its application identity to your MCP server (Boundary 1, solved via PKCE + Auth0-issued JWT), your MCP server must resolve which human issued the command and retrieve that human's pre-authorized Uber credentials (identity gap, solved via RFC 8693 Token Exchange + Auth0 Token Vault), and before the actual booking call is made, the user must explicitly confirm the financial transaction on a separate channel without leaving ChatGPT (confirmation gap, solved via CIBA). Each of these is a distinct protocol problem. None is automatically inherited from solving the others. Auth0 is the architectural component that spans all three — as authorization server, identity broker, credential vault, and confirmation orchestrator — making it the single most critical dependency in the entire stack.
+
+**ChatGPT** can talk to **external services** through **MCP**. Uber exposes **ride-booking** through an **OAuth-protected API**. **Auth0** can **broker identity** and **credentials**. 
+But connecting these **3 systems into a single seamless user action** — "book me an Uber" — requires solving an **identity chain** that does not exist out of the box.
+The chain breaks in 3 specific places: 
+
+1. Break 1 — ChatGPT is **authenticated**, but **the user is not**
+2. Break 2 — Our MCP server has **no standing** with Uber
+3. Break 3 — A financial transaction requires **explicit user confirmation**
+
 When a user books an Uber inside ChatGPT, **3 identity questions** must be **answered simultaneously**:
 
 - **Who is ChatGPT (the application)?** — solved by Boundary 1 / Auth0
@@ -20,6 +31,8 @@ When a user books an Uber inside ChatGPT, **3 identity questions** must be **ans
 The gap is question 2. We need a mechanism that **bridges the ChatGPT session identity** to the **Uber account identity** without asking the user to **re-authenticate every time**. 
 
 This is exactly what **Identity Federation** and specifically **Token Exchange** (RFC 8693) solves. This is where **Identity Jag** (**Id-Jag**) or equivalent **cross-app identity** patterns come in.
+
+### What Auth0 Must Solve Across Both Boundaries
 
 ### ChatGPT SDK
 The **ChatGPT SDK** lets developers bring their products directly into ChatGPT with **custom Ul components**, **API access**, and **user context** that can **persist** across chats. It's built on Model Context Protocol (**MCP**), which defines how ChatGPT communicates with our app through **tools**, **resources**, and **structured data**.
@@ -34,6 +47,12 @@ OpenAI chatgpt integrates with our **OAuth-protected MCP** server by performing 
 In traditional web apps, we often combine **OAuth + OpenID Connect (OIDC)** to both **authenticate** and **authorize users**.
 In the OpenAI chatgpt SDK integration, **only OAuth 2.1 is used** — **not OIDC.** So there’s **no user identity payload** (**no ID token**, **no claims** about the user).
 
+# The Problem Statement
+
+
+When ChatGPT connects to your MCP server, OAuth 2.0 authenticates the ChatGPT application — not the human behind it. The access token your MCP server receives proves that OpenAI's client is authorized to call your tools. It carries zero information about which specific human issued the command.
+OpenAI's MCP integration uses OAuth 2.0 without OpenID Connect. No ID token is issued. No sub claim. No user profile. The human is invisible at the protocol level.
+Your MCP server receives a legitimate, cryptographically valid token — and has no idea whose Uber account to charge.
 # Boundary 1 — ChatGPT ↔ MCP Server
 
 # Boundary 2 — MCP Server ↔ Uber API
