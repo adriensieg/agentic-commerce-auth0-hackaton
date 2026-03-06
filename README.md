@@ -3,6 +3,15 @@
 How do you securely **identify a human user**, **retrieve their pre-authorized third-party credentials**, and **confirm a financial transaction** across **two independent OAuth boundaries** — *in real time*, *transparentl*, inside a **conversational AI interface** (such as *ChatGPT*, *Le Chat* or *Claude*)?
 
 It's a **multi-party authorization problem** on how to Book and Pay a Uber (or Lyft) Ride Inside a 3rd party **conversational AI interface**? 
+Each of these is a distinct protocol problem.
+
+None is automatically inherited from solving the others. **Auth0 is the architectural component that spans all three** — 
+- as **authorization server**,
+- **identity broker**,
+- **credential vault**,
+- and **confirmation orchestrator**
+
+... making it the single most critical dependency in the entire stack.
 
 ### The Vision
 Tomorrow, a user **opens ChatGPT**, types *"Book me an Uber to O'Hare"*, and the ride is confirmed — **without ever opening the Uber app**. 
@@ -19,10 +28,6 @@ A user saying "book me an Uber" inside ChatGPT triggers a **3-party authorizatio
 1. ChatGPT must prove its **application identity** to our MCP server (Boundary 1, solved via PKCE + Auth0-issued JWT),
 2. ...our MCP server must **resolve which human issued the command** and retrieve that **human's pre-authorized Uber credentials** (identity gap, solved via RFC 8693 Token Exchange + Auth0 Token Vault),
 3. ...and before the actual booking call is made, the **user must explicitly confirm the financial transaction** on a separate channel without leaving ChatGPT (confirmation gap, solved via CIBA).
-
-Each of these is a distinct protocol problem.
-
-None is automatically inherited from solving the others. **Auth0 is the architectural component that spans all three** — as **authorization server**, **identity broker**, **credential vault**, and **confirmation orchestrator** — making it the single most critical dependency in the entire stack.
 
 - **ChatGPT** can talk to **external services** through **MCP**.
 - **Uber** exposes **ride-booking** through an **OAuth-protected API**.
