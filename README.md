@@ -10,6 +10,17 @@ Tomorrow, a user **opens ChatGPT**, types *"Book me an Uber to O'Hare"*, and the
 
 This is not a **UX convenience story**. It is a **multi-party authorization problem** with two distinct security boundaries that must be solved independently.
 
+### The Core Problem We're Solving
+When a user books an Uber inside ChatGPT, **3 identity questions** must be **answered simultaneously**:
+
+- **Who is ChatGPT (the application)?** — solved by Boundary 1 / Auth0
+- **Who is the human user?** — not solved by OAuth alone
+- **Does that human have an Uber account and has Uber authorized this?** — solved by Boundary 2 / Token Vault
+
+The gap is question 2. We need a mechanism that **bridges the ChatGPT session identity** to the **Uber account identity** without asking the user to **re-authenticate every time**. 
+
+This is exactly what **Identity Federation** and specifically **Token Exchange** (RFC 8693) solves. This is where **Identity Jag** (**Id-Jag**) or equivalent **cross-app identity** patterns come in.
+
 ### ChatGPT SDK
 The **ChatGPT SDK** lets developers bring their products directly into ChatGPT with **custom Ul components**, **API access**, and **user context** that can **persist** across chats. It's built on Model Context Protocol (**MCP**), which defines how ChatGPT communicates with our app through **tools**, **resources**, and **structured data**.
 
@@ -26,3 +37,7 @@ In the OpenAI chatgpt SDK integration, **only OAuth 2.1 is used** — **not OIDC
 # Boundary 1 — ChatGPT ↔ MCP Server
 
 # Boundary 2 — MCP Server ↔ Uber API
+
+# Bibliography
+
+https://www.youtube.com/watch?v=ve7ulU01jI4
