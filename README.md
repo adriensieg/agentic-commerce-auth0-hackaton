@@ -30,6 +30,9 @@ The chain breaks in 3 specific places:
 2. Break 2 — Our MCP server has **no standing** with Uber
 3. Break 3 — A financial transaction requires **explicit user confirmation**
 
+<img width="80%" height="80%" alt="image" src="https://github.com/user-attachments/assets/f2e79048-60aa-4b19-b10a-d6ca18b78a88" />
+
+
 We need a mechanism that **bridges the ChatGPT session identity** to the **Uber account identity** without asking the user to **re-authenticate every time**. 
 
 This is exactly what **Identity Federation** and specifically **Token Exchange** (RFC 8693) solves. This is where **Identity Jag** (**Id-Jag**) or equivalent **cross-app identity** patterns come in.
