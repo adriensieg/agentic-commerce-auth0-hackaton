@@ -3,9 +3,8 @@
 How do you securely **identify a human user**, **retrieve their pre-authorized third-party credentials**, and **confirm a financial transaction** across **two independent OAuth boundaries** — *in real time*, *transparently*, and inside an *external conversational AI interface* (such as *ChatGPT*, *Le Chat* or *Claude*)?
 
 It's a **multi-party authorization problem** on how to Book and Pay a Uber (or Lyft) Ride Inside a 3rd party **conversational AI interface**? 
-Each of these is a distinct protocol problem.
 
-None is automatically inherited from solving the others. **Auth0 is the architectural component that spans all three** — 
+Each of these is a distinct protocol problem. None is automatically inherited from solving the others. **Auth0 is the architectural component that spans all three** — 
 - as **authorization server**,
 - **identity broker**,
 - **credential vault**,
