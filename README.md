@@ -12,6 +12,8 @@ Tomorrow, a user **opens ChatGPT**, types *"Book me an Uber to O'Hare"*, and the
 
 This is not a **UX convenience story**. It is a **multi-party authorization problem** with **3 very distinct security boundaries** that must be solved independently.
 
+https://youtube.com/shorts/5ZI7IgvJHV8
+
 ### The Core Problem We're Solving
 A user saying "book me an Uber" inside ChatGPT triggers a **3-party authorization chain**: 
 
