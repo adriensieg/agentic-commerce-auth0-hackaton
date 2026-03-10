@@ -5,10 +5,12 @@ How do you securely **identify a human user**, **retrieve their pre-authorized t
 It's a **multi-party authorization problem** on how to Book and Pay a Uber (or Lyft) Ride Inside a 3rd party **conversational AI interface**.
 
 ## The Vision
-Tomorrow, a user **opens ChatGPT**, types *"Book me an Uber to O'Hare"*, and the ride is confirmed — **without ever opening the Uber app**. 
-- **ChatGPT becomes the interface**.
-- **Uber** becomes a **backend service**.
-- The AI agent orchestrates everything.
+Tomorrow, a user opens ChatGPT and types: “Book me a ride to O’Hare.” The AI **compares prices**, **finds the cheapest option**, **confirms the ride**, **completes the payment** —
+— seamlessly, silently — without ever opening Uber, Lyft, or Grab. **No apps**, **No switching**, **No friction**.
+
+- **ChatGPT** becomes the **interface**.
+- **Uber** becomes the **backend**.
+- The **AI agent** **orchestrates** everything.
 
 This is not a **UX convenience story**. It is a **multi-party authorization problem** with **3 very distinct security boundaries** that must be solved independently.
 
