@@ -15,7 +15,7 @@ Tomorrow, a user opens ChatGPT and types: “Book me a ride to O’Hare.” The 
 This is not a **UX convenience story**. It is a **multi-party authorization problem** with **3 very distinct security boundaries** that must be solved independently.
 
 - 🚗 Book the cheapest Uber or Lyft—right inside ChatGPT - https://www.youtube.com/shorts/5ZI7IgvJHV8
-- 💐 Send flowers instantly from Mistral AI Le Chat - https://youtu.be/671YMGWVHL0
+- 💐 Send flowers instantly from your local nearby store inside Mistral AI Le Chat - https://youtu.be/671YMGWVHL0
 - 🍔 Order your favorite nearby burgers with Anthropic Claude - https://www.youtube.com/shorts/Cy-N7jy_BsQ
 
 I implemented a **secure**, **OAuth-protected MCP server** that enables any AI Assistant to **discover products**, **execute commerce tools**, and **complete end-to-end Agentic Commerce transactions** through a standardized and trusted protocol.
