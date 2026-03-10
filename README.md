@@ -119,6 +119,33 @@ OpenAI chatgpt integrates with our **OAuth-protected MCP** server by performing 
 In traditional web apps, we often combine **OAuth + OpenID Connect (OIDC)** to both **authenticate** and **authorize users**.
 In the OpenAI chatgpt SDK integration, **only OAuth 2.1 is used** — **not OIDC.** So there’s **no user identity payload** (**no ID token**, **no claims** about the user).
 
+# What has it been developed? 
+
+```
+agentic-commerce/
+├── app.py
+└── library_mcp_auth/
+    ├── __init__.py
+    ├── config.py
+    ├── token.py
+    ├── middleware.py
+    └── routes.py
+├── library_mcp_ordering/
+    ├── __init__.py
+    ├── data.py
+    ├── filters.py
+    ├── handlers.py
+    ├── models.py
+    ├── server.py
+    └── widgets.py
+├── infrastructure/
+    ├── deployment.yaml
+    └── service.yaml
+├── Dockerfile
+├── requirements.txt
+└── README.md
+```
+
 
 # Bibliography
 
