@@ -164,7 +164,7 @@ You can try the Commerce Protocol out here - https://mistralai.devailab.work/mcp
 
 # What's Agentic Commerce? 
 
-<img width="800" height="859" alt="image" src="https://github.com/user-attachments/assets/1b0eab63-78e9-456f-b51e-f61cccc85ab8" />
+<img width="70%" height="70%" alt="image" src="https://github.com/user-attachments/assets/1b0eab63-78e9-456f-b51e-f61cccc85ab8" />
 
 # Bibliography
 
