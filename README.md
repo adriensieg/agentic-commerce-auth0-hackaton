@@ -13,7 +13,7 @@ It's a **multi-party authorization problem** on how to Book and Pay a Uber (or L
   - [Break 2 — our MCP server has no standing with Uber](https://github.com/adriensieg/agentic-commerce-auth0-hackaton/blob/master/README.md#break-2--our-mcp-server-has-no-standing-with-uber)
   - [Break 3 — A financial transaction requires explicit user confirmation](https://github.com/adriensieg/agentic-commerce-auth0-hackaton/blob/master/README.md#break-3--a-financial-transaction-requires-explicit-user-confirmation)
 - [What Auth0 Must Solve Across Both Boundaries](https://github.com/adriensieg/agentic-commerce-auth0-hackaton/blob/master/README.md#what-auth0-must-solve-across-both-boundaries)
-- [What is blocked — and why? What are the limits?](https://github.com/adriensieg/agentic-commerce-auth0-hackaton/blob/master/README.md#what-is-blocked--and-why-what-are-the-limits)
+- [The Limits of Today, The Blueprint for Tomorrow](https://github.com/adriensieg/agentic-commerce-auth0-hackaton/blob/master/README.md#what-is-blocked--and-why-what-are-the-limits)
 - [What has it been developed for this hackaton?](https://github.com/adriensieg/agentic-commerce-auth0-hackaton/blob/master/README.md#what-has-it-been-developed-for-this-hackaton)
   - [Solution 1 — ChatGPT is authenticated with any AI Assistant](https://github.com/adriensieg/agentic-commerce-auth0-hackaton/blob/master/README.md#solution-1--chatgpt-is-authenticated-with-any-ai-assistant)
   - [Solution 2 — Building an MCP server for Uber API integration](https://github.com/adriensieg/agentic-commerce-auth0-hackaton/blob/master/README.md#solution-2--building-an-mcp-server-for-uber-api-integration)
@@ -112,7 +112,7 @@ identity-bearing token     retrieved on demand           out-of-band
 
 <img width="80%" height="80%" alt="image" src="https://github.com/user-attachments/assets/fbf8a72a-7c4c-4fd8-9bdc-f210ada95072" />
 
-# What is blocked — and why? What are the limits? 
+# The Limits of Today, The Blueprint for Tomorrow
 
 #### OpenAI does not expose user identity through the MCP layer.
 **RFC 8693 Token Exchange** works only if Auth0 can resolve the incoming ChatGPT token to a known user. 
