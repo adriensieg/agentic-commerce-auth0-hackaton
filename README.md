@@ -4,7 +4,11 @@ How do we enable **AI assistants** (such as *Open AI ChatGPT*, *Mistral AI Le Ch
 
 Who **owns the transaction** when ChatGPT (or others) becomes the **interface** and **every app becomes a backend** —and how do we **monetize** that securely?
 
-It's a **multi-party authorization problem** on how to Book and Pay a Uber (or Lyft) Ride Inside a 3rd party **conversational AI interface**.
+It's a **multi-party authorization problem** on how to **order** and **pay** Inside a 3rd party **conversational AI interface**.
+
+- 🚗 Book the cheapest Uber or Lyft—right inside ChatGPT - https://www.youtube.com/shorts/5ZI7IgvJHV8
+- 💐 Send flowers instantly from your local nearby store inside Mistral AI Le Chat - https://youtu.be/671YMGWVHL0
+- 🍔 Order your favorite nearby burgers with Anthropic Claude - https://www.youtube.com/shorts/Cy-N7jy_BsQ
 
 - [The vision](https://github.com/adriensieg/agentic-commerce-auth0-hackaton/blob/master/README.md#the-vision)
 - [The Core Problem We're Solving](https://github.com/adriensieg/agentic-commerce-auth0-hackaton/blob/master/README.md#the-core-problem-were-solving)
@@ -28,10 +32,6 @@ Tomorrow, a user opens ChatGPT and types: “Book me a ride to O’Hare.” The 
 - The **AI agent** **orchestrates** everything.
 
 This is not a **UX convenience story**. It is a **multi-party authorization problem** with **3 very distinct security boundaries** that must be solved independently.
-
-- 🚗 Book the cheapest Uber or Lyft—right inside ChatGPT - https://www.youtube.com/shorts/5ZI7IgvJHV8
-- 💐 Send flowers instantly from your local nearby store inside Mistral AI Le Chat - https://youtu.be/671YMGWVHL0
-- 🍔 Order your favorite nearby burgers with Anthropic Claude - https://www.youtube.com/shorts/Cy-N7jy_BsQ
 
 I implemented a **secure**, **OAuth-protected MCP server** that enables any AI Assistant to **discover products**, **execute commerce tools**, and **complete end-to-end Agentic Commerce transactions** through a standardized and trusted protocol.
 
